@@ -1,0 +1,21 @@
+type Query {
+    query(deviceId: ID!, time: Time)
+}
+
+input SoilSensor {
+    N: Int
+    P: Int
+    K: Int
+    pH: Int
+}
+
+input TempSensor {
+    T: Float
+}
+
+enum Time {
+    1h
+    2h
+    3h
+    6h
+}

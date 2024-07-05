@@ -1,0 +1,43 @@
+type Query {
+    getDevicesByUser(userId: ID!): [DeviceByUser]
+    getDeviceByName(deviceName: String!): DeviceByName
+    getDevice(deviceId: ID!): Device
+}
+
+type Device {
+    deviceId: ID!
+    deviceName: String!
+    support: Support!
+    api: String
+    typeMcu: MCU!
+}
+
+type DeviceByName {
+    deviceName: String!
+    userId: ID!
+    deviceId: ID!
+}
+
+type DeviceByUser {
+    userId: ID!
+    deviceName: String!
+    deviceId: ID!
+}
+
+type Mutation {
+    createDevice(deviceName: String!, support: Support!, type: MCU!): Device
+    updateDevice(deviceName: String!, support: Support!, type: MCU!): Device
+    deleteDeviceById(deviceId: ID!): Device
+}
+
+enum Support {
+    WiFi
+    LoRa
+}
+
+enum MCU {
+    ESP
+    Arduino
+    NPK
+    Temperature
+}
