@@ -7,10 +7,10 @@ import enspy.rmi.device.entity.Info;
 import enspy.rmi.device.repository.DeviceByNameRepository;
 import enspy.rmi.device.repository.DeviceByUserRepository;
 import enspy.rmi.device.repository.DeviceRepository;
-import org.apache.pulsar.client.api.PulsarClientException;
+// import org.apache.pulsar.client.api.PulsarClientException;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.pulsar.core.PulsarTemplate;
+// import org.springframework.pulsar.core.PulsarTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -64,8 +64,8 @@ public class DeviceService {
         return deviceToDelete;
     }
 
-    public void sendMessageToPulsarTopic(PulsarTemplate<Info> pulsarTemplate, String topic, Info info) throws PulsarClientException {
-        pulsarTemplate.send(topic, info);
-    }
+//    public void sendMessageToPulsarTopic(PulsarTemplate<Info> pulsarTemplate, String topic, Info info) throws PulsarClientException {
+//        pulsarTemplate.send(topic, info);
+//    }
 
 }

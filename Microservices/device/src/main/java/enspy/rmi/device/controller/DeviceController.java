@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
-import org.springframework.pulsar.core.PulsarTemplate;
+// import org.springframework.pulsar.core.PulsarTemplate;
 import org.springframework.stereotype.Controller;
 
 import java.util.ArrayList;
@@ -25,8 +25,8 @@ public class DeviceController {
     private DeviceByNameService deviceByNameService;
     @Autowired
     private DeviceByUserService deviceByUserService;
-    @Autowired
-    private PulsarTemplate<Info> pulsarTemplate;
+//    @Autowired
+//    private PulsarTemplate<Info> pulsarTemplate;
 
     private static final String DEVICE_TOPIC = "devices_info";
 
@@ -54,7 +54,7 @@ public class DeviceController {
         Device device = deviceService.createDevice(deviceName, support, type);
         try {
             Info info = new Info(device.getDeviceId(), device.getApi());
-            deviceService.sendMessageToPulsarTopic(pulsarTemplate, DEVICE_TOPIC, info);
+            // deviceService.sendMessageToPulsarTopic(pulsarTemplate, DEVICE_TOPIC, info);
         } catch (Exception e) {
             e.printStackTrace();
         }

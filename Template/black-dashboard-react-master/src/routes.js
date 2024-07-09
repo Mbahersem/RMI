@@ -23,6 +23,7 @@ import Rtl from "views/Rtl.js";
 import TableList from "views/TableList.js";
 import Typography from "views/Typography.js";
 import UserProfile from "views/UserProfile.js";
+import Prediction from "views/Prediction.js";
 
 var routes = [
   {
@@ -34,8 +35,8 @@ var routes = [
     layout: "/admin",
   },
   {
-    path: "/icons",
-    name: "Icons",
+    path: "/devices",
+    name: "Devices",
     rtlName: "الرموز",
     icon: "tim-icons icon-atom",
     component: <Icons />,
@@ -55,6 +56,14 @@ var routes = [
     rtlName: "إخطارات",
     icon: "tim-icons icon-bell-55",
     component: <Notifications />,
+    layout: "/admin",
+  },
+  {
+    path: "/prediction",
+    name: "Prediction",
+    rtlName: "إخطارات",
+    icon: "tim-icons icon-components",
+    component: <Prediction />,
     layout: "/admin",
   },
   {
@@ -89,5 +98,6 @@ var routes = [
     component: <Rtl />,
     layout: "/rtl",
   },
+
 ];
 export default routes;
