@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
-import org.springframework.pulsar.core.PulsarTemplate;
+// import org.springframework.pulsar.core.PulsarTemplate;
 import org.springframework.stereotype.Controller;
 
 import java.util.UUID;
@@ -20,8 +20,8 @@ public class UserController {
     private UserService userService;
     @Autowired
     private UserByMailService userByMailService;
-    @Autowired
-    private PulsarTemplate<UUID> pulsarTemplate;
+    // @Autowired
+    //private PulsarTemplate<UUID> pulsarTemplate;
 
     private static final String USER_TOPIC = "user-id";
     private static final String USER_LOG_OUT = "disconnect";
@@ -52,7 +52,7 @@ public class UserController {
         if(user != null) {
             if(user.getUserName().equals(email) && BCrypt.checkpw(password, user.getUserPassword())) {
                 try {
-                    userService.sendMessageToPulsarTopic(pulsarTemplate, USER_TOPIC, user.getUserId());
+                    // userService.sendMessageToPulsarTopic(pulsarTemplate, USER_TOPIC, user.getUserId());
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

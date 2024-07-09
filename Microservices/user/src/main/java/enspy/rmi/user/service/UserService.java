@@ -4,10 +4,10 @@ import enspy.rmi.user.entity.User;
 import enspy.rmi.user.entity.UserByMail;
 import enspy.rmi.user.repository.UserByMailRepository;
 import enspy.rmi.user.repository.UserRepository;
-import org.apache.pulsar.client.api.PulsarClientException;
+// import org.apache.pulsar.client.api.PulsarClientException;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.pulsar.core.PulsarTemplate;
+// import org.springframework.pulsar.core.PulsarTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -45,7 +45,7 @@ public class UserService {
         return user;
     }
 
-    public void sendMessageToPulsarTopic(PulsarTemplate<UUID> pulsarTemplate, String topic, UUID id) throws PulsarClientException {
-        pulsarTemplate.send(topic, id);
-    }
+//    public void sendMessageToPulsarTopic(PulsarTemplate<UUID> pulsarTemplate, String topic, UUID id) throws PulsarClientException {
+//        pulsarTemplate.send(topic, id);
+//    }
 }
